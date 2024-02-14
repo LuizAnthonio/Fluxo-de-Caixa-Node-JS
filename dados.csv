@@ -1,4 +1,4 @@
-Nome,Telefone,Número de Identificação,Tipo,Valor,Data,Valor Acumulado,Nome Despesa
+nome,telefone,id,tipo,valor,data,valor_acumulado,nome_despesa
 João da Silva,(11) 98765-4321,123456789,entrada,100.00,2024-01-05,0.00,venda
 Maria Oliveira,(21) 12345-6789,987654321,entrada,250.00,2024-01-10,0.00,venda
 Pedro Santos,(31) 87654-3210,654321987,saida,200.00,2024-01-15,214.00,Manutenção
