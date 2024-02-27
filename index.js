@@ -24,7 +24,7 @@ app.use( bodyParser.urlencoded({
 //console.log("ola")
 
 
-console.table(Tools.formatarObj(Tools.criaObjeto("./dados/empresa.csv")))
+console.log(Tools.formatarObj(Tools.criaObjeto("./dados/empresa.csv")))
 
 app.get("/", (req,res) => {
     
@@ -129,7 +129,8 @@ app.post("/:ano", (req,res) => {
 })
 
 
-app.get("/relatorio/1", (req,res) => {
+
+app.get("/relatorio/geral", (req,res) => {
 
     const dadosEmMassa = Tools.formatarObj(Tools.criaObjeto("./dados/empresa.csv"))
 
@@ -146,7 +147,7 @@ app.get("/relatorio/1", (req,res) => {
                 }
 
                 
-                anos.shift()
+               // anos.shift()
                 
                 console.log(anos)
 
@@ -220,7 +221,31 @@ app.get("/relatorio/1", (req,res) => {
 
 
 
+//cadastrar disp
+app.post("/lancamento/cad", (req,res) => {
+
+
+    const {nome,telefone,id,tipo,valor,data,valor_acumulado,nome_despesa} = req.body;
+
+    let linha = [nome,telefone,id,tipo,valor,data,valor_acumulado,nome_despesa].toString();
+
+    try{
+        
+        fs.appendFileSync("dados/empresa.csv",`${linha}\n`)
+        res.json("salvo")
+    }catch{
+        res.json("erro")
+    }
+
+
+})
+
+
+
+
+
 const port = 8000;
+
 
 app.listen(port,() => {
 
